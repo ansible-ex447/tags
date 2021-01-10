@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install samba
+      yum:
+        name: samba
+        state: installed
+      tags: [ never, alpha ]
+    - name: Install vsftpd
+      yum:
+        name: vsftpd
+        state: installed
+      tags: [ never, beta ]
