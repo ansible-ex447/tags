@@ -1,0 +1,15 @@
+---
+- name: create tags
+  hosts: all
+  become: yes
+  tasks:
+    - name: Copy content with alpha tags
+      copy:
+        content: "hello world with alpha"
+        dest: /tmp/alpha.txt
+      tags: [never, alpha]
+    - name: Copy content with beta tags
+      copy:
+        content: "hello world with beta"
+        dest: /tmp/beta.txt
+      tags: [never, beta]
