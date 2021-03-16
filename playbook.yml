@@ -1,0 +1,15 @@
+---
+- name: create tags
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install samba with tags alpha
+      yum:
+        name: samba
+        state: installed
+      tags: [never, alpha]
+    - name: Install vsftpd with tags beta
+      yum:
+        name: vsftpd
+        state: installed
+      tags: [never, beta] 
