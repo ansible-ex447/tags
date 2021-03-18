@@ -3,13 +3,13 @@
   hosts: all
   become: yes
   tasks:
-    - name: Install samba with tags alpha
-      yum:
-        name: samba
-        state: installed
+    - name: Copy content with tags alpha
+      copy:
+        content: "ex447 goodluck alpha"
+        dest: /tmp/alpha-test.txt
       tags: [never, alpha]
-    - name: Install vsftpd with tags beta
-      yum:
-        name: vsftpd
-        state: installed
+    - name: Copy content with tags beta
+      copy:
+        content: "ex447 goodluck beta"
+        dest: /tmp/beta-test.txt
       tags: [never, beta] 
