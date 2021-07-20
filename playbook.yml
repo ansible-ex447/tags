@@ -1,15 +1,17 @@
 ---
 - name: Create tags
   hosts: all
-  become: yes
+  become: no
   tasks:
-    - name: copy content with tags alpha
-      copy:
-        content: "goodluck ex447 alpha"
-        dest: /tmp/alpha.txt
+    - name: Install vsftpd
+      yum:
+        name:  vsftpd
+        state: installed
       tags: [never, alpha]
-    - name: copy content with tags beta
-      copy:
-        content: "goodluck ex447 beta"
-        dest: /tmp/beta.txt
+
+    - name:  install httpd
+      yum:
+        name:  httpd
+        state:  installed
       tags: [never, beta]
+
