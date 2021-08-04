@@ -3,14 +3,15 @@
   hosts: all
   become: yes
   tasks:
-    - name: tag with alpha
-      yum:
-        name: vsftpd
-        state: absent
-      tags: [never,alpha]
-
-    - name: tag with beta
+    - name: task on Alpha
       yum:
         name: vsftpd
         state: latest
+      tags: [never,alpha]
+
+      
+    - name: task on Beta
+      yum:
+        name: vsftpd
+        state: absent
       tags: [never,beta]
