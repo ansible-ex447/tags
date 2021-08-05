@@ -1,17 +1,5 @@
 ---
 - name: Create tags
   hosts: all
-  become: yes
+  become: no
   tasks:
-    - name: task on Alpha
-      yum:
-        name: vsftpd
-        state: latest
-      tags: [never,alpha]
-
-      
-    - name: task on Beta
-      yum:
-        name: vsftpd
-        state: absent
-      tags: [never,beta]
