@@ -1,16 +1,5 @@
 ---
 - name: Create tags
   hosts: all
-  become: yes
+  become: no
   tasks:
-    - name: task for alpha
-      copy:
-        content: 'this for Alpha task'
-        dest: /var/www/html/index.html
-      tags: [never,alpha]
-
-    - name: task for beta
-      copy:
-        content: 'this for Beta task'
-        dest: /var/www/html/index.html
-      tags: [never,beta]
